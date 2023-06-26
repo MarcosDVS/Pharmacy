@@ -1,0 +1,164 @@
+﻿@page "/clientes"
+
+@if (!ShowForm)
+{
+    <h3>Clientes (@Customers.Count)</h3>
+    <div class="mb-2">
+        <button class="btn btn-success"
+            @onclick="()=>{ShowForm = !ShowForm;}">
+            Agregar
+        </button>
+    </div>
+}
+<div class="container">
+    @if (ShowForm)
+    {
+        <h3>@TituloForm</h3>
+        <EditForm Model="request" OnValidSubmit="Send">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="mb-3 input-group">
+                <label class="input-group-text">Nombre</label>
+                <InputText class="form-control" @bind-Value="@request.Nombre"></InputText>
+            </div>
+            <div class="mb-3 input-group">
+                <label class="input-group-text">Telefono</label>
+                <InputText class="form-control" @bind-Value="@request.Telefono"></InputText>
+            </div>
+            <div class="mb-3 input-group">
+                <label class="input-group-text">Direccion</label>
+                <InputText class="form-control" @bind-Value="@request.Direccion"></InputText>
+            </div>
+            
+            <div class="btn-group">
+                <button type="submit" class="btn btn-outline-success">Guardar</button>
+                <button @onclick="Cancelar" class="btn btn-outline-danger">Cancelar</button>
+            </div>
+        </EditForm>
+        <br />
+    }
+    else
+    {
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Direccion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Customers)
+            {
+                <tr>
+                    <td>@customer.Nombre</td>
+                    <td>@customer.Telefono</td>
+                    <td>@customer.Direccion</td>
+                    <td>
+                        <div class="group">
+                            <button class="btn btn-warning oi oi-pencil" @onclick="()=>Seleccionar(customer.Id)">
+                            </button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn-group" @onclick="()=>Eliminar(customer)">
+                            <button class="btn btn-danger oi oi-trash">
+                            </button>
+                        </div>
+                    </td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+    }
+</div>
+@code {
+    public string TituloForm => request.Id == 0 ?
+    "Agregar cliente" : "Modificar cliente";
+
+    public bool ShowForm { get; set; } = false;
+    public string Filtro { get; set; } = "";
+    public List<ClienteResponse> Customers { get; set; }
+        = new List<ClienteResponse>();
+
+    public ClientesRequest request { get; set; } = new ClientesRequest();
+
+    void Cancelar()
+    {
+        request = new ClientesRequest();
+        ShowForm = false;
+    }
+    async Task CargarClientes()
+    {
+        var resultado =
+        await clienteServices.Consultar(Filtro);
+        if (resultado.Success)
+        {
+            Customers = resultado.Data!;
+        }
+    }
+
+    public void Editar(ClienteResponse customer)
+    {
+        ShowForm = true;
+        request = new ClientesRequest
+            {
+                Id = customer.Id,
+                Nombre = customer.Nombre,
+                Telefono = customer.Telefono,
+                Direccion = customer.Direccion
+            };
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarClientes();
+    }
+
+    public async Task Send()
+    {
+        if (request.Id == 0)
+        {
+            //Debo registrar el contacto..
+            var r = await clienteServices.Crear(request);
+            if (r.Success)
+            {
+                Cancelar();
+                await CargarClientes();
+                StateHasChanged();
+            }
+        }
+        else
+        {
+            //Debo solicitar modificar el contacto...
+            var r = await clienteServices.Modificar(request);
+            if (r.Success)
+            {
+                Cancelar();
+                await CargarClientes();
+                StateHasChanged();
+            }
+        }
+    }
+
+    public void Seleccionar(int Id)
+    {
+        ShowForm = true;
+        request = Customers
+        .Where(c => c.Id == Id)
+        .Select(c => c.ToRequest())
+        .FirstOrDefault() ?? new ClientesRequest();
+    }
+
+    public async Task Eliminar(ClienteResponse customer)
+    {
+        var resultado = await clienteServices.Eliminar(customer.ToRequest());
+        if (resultado.Success)
+        {
+            await CargarClientes();
+            StateHasChanged();
+        }
+    }
+
+}
