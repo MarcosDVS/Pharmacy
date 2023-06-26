@@ -124,6 +124,43 @@
         }
       },
       {
+        "HashCode": -1044442002,
+        "Kind": "Components.Component",
+        "Name": "Farmacia_DyM.Pages.Usuario.Index",
+        "AssemblyName": "Farmacia-DyM",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Index"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "Farmacia_DyM.Pages.Usuario.Index",
+          "Common.TypeNameIdentifier": "Index",
+          "Common.TypeNamespace": "Farmacia_DyM.Pages.Usuario",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -1645238955,
+        "Kind": "Components.Component",
+        "Name": "Farmacia_DyM.Pages.Usuario.Index",
+        "AssemblyName": "Farmacia-DyM",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Farmacia_DyM.Pages.Usuario.Index"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "Farmacia_DyM.Pages.Usuario.Index",
+          "Common.TypeNameIdentifier": "Index",
+          "Common.TypeNamespace": "Farmacia_DyM.Pages.Usuario",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
         "HashCode": 824414170,
         "Kind": "Components.Component",
         "Name": "Farmacia_DyM.Pages.Cliente.Index",
@@ -156,6 +193,80 @@
           "Common.TypeName": "Farmacia_DyM.Pages.Cliente.Index",
           "Common.TypeNameIdentifier": "Index",
           "Common.TypeNamespace": "Farmacia_DyM.Pages.Cliente",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -1093843073,
+        "Kind": "Components.Component",
+        "Name": "Farmacia_DyM.Pages.Proveedor.Index",
+        "AssemblyName": "Farmacia-DyM",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Index"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "Farmacia_DyM.Pages.Proveedor.Index",
+          "Common.TypeNameIdentifier": "Index",
+          "Common.TypeNamespace": "Farmacia_DyM.Pages.Proveedor",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 2016779227,
+        "Kind": "Components.Component",
+        "Name": "Farmacia_DyM.Pages.Proveedor.Index",
+        "AssemblyName": "Farmacia-DyM",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Farmacia_DyM.Pages.Proveedor.Index"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "Farmacia_DyM.Pages.Proveedor.Index",
+          "Common.TypeNameIdentifier": "Index",
+          "Common.TypeNamespace": "Farmacia_DyM.Pages.Proveedor",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": -45039587,
+        "Kind": "Components.Component",
+        "Name": "Farmacia_DyM.Pages.Producto.Index",
+        "AssemblyName": "Farmacia-DyM",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Index"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "Farmacia_DyM.Pages.Producto.Index",
+          "Common.TypeNameIdentifier": "Index",
+          "Common.TypeNamespace": "Farmacia_DyM.Pages.Producto",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 1868239524,
+        "Kind": "Components.Component",
+        "Name": "Farmacia_DyM.Pages.Producto.Index",
+        "AssemblyName": "Farmacia-DyM",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Farmacia_DyM.Pages.Producto.Index"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "Farmacia_DyM.Pages.Producto.Index",
+          "Common.TypeNameIdentifier": "Index",
+          "Common.TypeNamespace": "Farmacia_DyM.Pages.Producto",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
         }
@@ -19032,6 +19143,11 @@
   "RootNamespace": "Farmacia_DyM",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\Usuario\\Desktop\\Farmacia-DyM\\Pages\\Usuario\\Index.razor",
+      "TargetPath": "Pages\\Usuario\\Index.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\Usuario\\Desktop\\Farmacia-DyM\\Pages\\_Host.cshtml",
       "TargetPath": "Pages\\_Host.cshtml",
       "FileKind": "mvc"
@@ -19052,13 +19168,28 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "c:\\Users\\Usuario\\Desktop\\Farmacia-DyM\\Pages\\Usuario\\_Imports.razor",
+      "TargetPath": "Pages\\Usuario\\_Imports.razor",
+      "FileKind": "componentImport"
+    },
+    {
       "FilePath": "c:\\Users\\Usuario\\Desktop\\Farmacia-DyM\\_Imports.razor",
       "TargetPath": "_Imports.razor",
       "FileKind": "componentImport"
     },
     {
+      "FilePath": "c:\\Users\\Usuario\\Desktop\\Farmacia-DyM\\Pages\\Producto\\Index.razor",
+      "TargetPath": "Pages\\Producto\\Index.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\Usuario\\Desktop\\Farmacia-DyM\\Pages\\Cliente\\_Imports.razor",
       "TargetPath": "Pages\\Cliente\\_Imports.razor",
+      "FileKind": "componentImport"
+    },
+    {
+      "FilePath": "c:\\Users\\Usuario\\Desktop\\Farmacia-DyM\\Pages\\Proveedor\\_Imports.razor",
+      "TargetPath": "Pages\\Proveedor\\_Imports.razor",
       "FileKind": "componentImport"
     },
     {
@@ -19077,9 +19208,19 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "c:\\Users\\Usuario\\Desktop\\Farmacia-DyM\\Pages\\Proveedor\\Index.razor",
+      "TargetPath": "Pages\\Proveedor\\Index.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\Usuario\\Desktop\\Farmacia-DyM\\App.razor",
       "TargetPath": "App.razor",
       "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usuario\\Desktop\\Farmacia-DyM\\Pages\\Producto\\_Imports.razor",
+      "TargetPath": "Pages\\Producto\\_Imports.razor",
+      "FileKind": "componentImport"
     },
     {
       "FilePath": "c:\\Users\\Usuario\\Desktop\\Farmacia-DyM\\Pages\\Error.cshtml",

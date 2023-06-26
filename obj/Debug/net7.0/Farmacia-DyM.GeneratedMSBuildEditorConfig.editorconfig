@@ -40,6 +40,30 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Usuario/Desktop/Farmacia-DyM/Pages/Producto/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdG9cSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Desktop/Farmacia-DyM/Pages/Producto/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdG9cX0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Desktop/Farmacia-DyM/Pages/Proveedor/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvdmVlZG9yXEluZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Desktop/Farmacia-DyM/Pages/Proveedor/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvdmVlZG9yXF9JbXBvcnRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Desktop/Farmacia-DyM/Pages/Usuario/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXN1YXJpb1xJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Desktop/Farmacia-DyM/Pages/Usuario/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXN1YXJpb1xfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Usuario/Desktop/Farmacia-DyM/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
