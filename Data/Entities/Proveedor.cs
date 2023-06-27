@@ -11,20 +11,25 @@ namespace FarmaciaDyM.Data.Entities
         public string Nombre { get; set; } = null!;
         public string? Telefono { get; set; }
 
-        public ProveedorResponse? ToResponse()=>new() 
+        public ProveedorResponse ToResponse()
         { 
-            Id = Id, 
-            Nombre = Nombre, 
-            Telefono = Telefono
-        };
+            return new ProveedorResponse 
+            { 
+                Id = Id, 
+                Nombre = Nombre, 
+                Telefono = Telefono 
+            };
+        }
 
-        public static Proveedor crear(ProveedorRequest proveedor)
-        => new Proveedor()
+        public static Proveedor Crear(ProveedorRequest proveedor)
         {
-            Nombre = proveedor.Nombre,
-            Telefono = proveedor.Telefono,
+            return new Proveedor()
+            {
+                Nombre = proveedor.Nombre,
+                Telefono = proveedor.Telefono
+            };
+        }
 
-        };
         public bool Modificar(ProveedorRequest proveedor)
         {
             var cambio = false;
@@ -39,11 +44,7 @@ namespace FarmaciaDyM.Data.Entities
                 cambio = true;
             }
 
-
             return cambio;
         }
-
     }
-
 }
-

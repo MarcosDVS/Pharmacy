@@ -17,6 +17,7 @@
         <EditForm Model="request" OnValidSubmit="Send">
             <DataAnnotationsValidator />
             <ValidationSummary />
+            
             <div class="mb-3 input-group">
                 <label class="input-group-text">Nombre</label>
                 <InputText class="form-control" @bind-Value="@request.Nombre"></InputText>

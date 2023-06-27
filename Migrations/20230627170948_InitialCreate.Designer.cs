@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Farmacia_DyM.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230627104124_InitialCreate")]
+    [Migration("20230627170948_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

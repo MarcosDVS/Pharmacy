@@ -9,13 +9,14 @@ namespace FarmaciaDyM.Data.Response
         public string? Telefono { get; set; }
 
         public ProveedorRequest ToRequest()
-        {  
-            return new ProveedorRequest 
-            { 
+        {
+            return new ProveedorRequest
+            {
                 Id = Id,
-                Nombre = Nombre, 
-                Telefono = Telefono 
-            }; 
+                Nombre = Nombre,
+                Telefono = Telefono
+            };
         }
     }
 }
+

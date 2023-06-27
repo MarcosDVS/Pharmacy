@@ -27,54 +27,49 @@ namespace FarmaciaDyM.Data.Services
         {
             try
             {
-
-                var proveedor = Proveedor.crear(request);
+                var proveedor = Proveedor.Crear(request);
 
                 dbContext.Proveedores.Add(proveedor);
                 await dbContext.SaveChangesAsync();
+
                 return new Result() { Message = "OK", Success = true };
-
             }
-
             catch (Exception E)
             {
-
                 return new Result() { Message = E.Message, Success = false };
             }
-
-
-
-
         }
+
         public async Task<Result> Modificar(ProveedorRequest request)
         {
             try
             {
                 var proveedor = await dbContext.Proveedores.FirstOrDefaultAsync(c => c.Id == request.Id);
                 if (proveedor == null)
-                    return new Result() { Message = "No se Encontro El Proveedor", Success = false };
+                    return new Result() { Message = "No se encontró el proveedor", Success = false };
+
                 if (proveedor.Modificar(request))
                     await dbContext.SaveChangesAsync();
 
                 return new Result() { Message = "OK", Success = true };
-
             }
             catch (Exception E)
             {
-
                 return new Result() { Message = E.Message, Success = false };
             }
-
         }
+
         public async Task<Result> Eliminar(ProveedorRequest request)
         {
             try
             {
                 var proveedor = await dbContext.Proveedores.FirstOrDefaultAsync(c => c.Id == request.Id);
                 if (proveedor == null)
-                    return new Result() { Message = "No se Encontro El Producto", Success = false };
+                    return new Result() { Message = "No se encontró el proveedor", Success = false };
+
                 dbContext.Proveedores.Remove(proveedor);
                 await dbContext.SaveChangesAsync();
+
                 return new Result() { Message = "OK", Success = true };
             }
             catch (Exception E)
@@ -82,24 +77,21 @@ namespace FarmaciaDyM.Data.Services
                 return new Result() { Message = E.Message, Success = false };
             }
         }
+
         public async Task<Result<List<ProveedorResponse>>> Consultar(string Filtro)
         {
             try
             {
-                var proveedor = await dbContext.Proveedores.Where(c =>
+                var proveedores = await dbContext.Proveedores
+                    .Where(c => (c.Nombre + " " + c.Id + " " + c.Nombre).ToLower().Contains(Filtro.ToLower()))
+                    .Select(c => c.ToResponse())
+                    .ToListAsync();
 
-                (c.Nombre + "" + c.Id + " " + c.Nombre)
-                .ToLower()
-                .Contains(Filtro.ToLower()
-                )
-                )
-                .Select(c => c.ToResponse())
-                .ToListAsync();
                 return new Result<List<ProveedorResponse>>()
                 {
                     Message = "OK",
                     Success = true,
-                    Data = proveedor
+                    Data = proveedores
                 };
             }
             catch (Exception E)

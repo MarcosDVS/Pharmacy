@@ -33,10 +33,8 @@ namespace FarmaciaDyM.Data.Services
                 await dbContext.SaveChangesAsync();
                 return new Result() { Message = "OK", Success = true };
             }
-
             catch (Exception E)
             {
-
                 return new Result() { Message = E.Message, Success = false };
             }
         }
