@@ -19,5 +19,8 @@ namespace FarmaciaDyM.Data.Response
 
         [ForeignKey(nameof(VentaId))]
         public virtual Venta Venta { get; set; }
+
+        [NotMapped]
+        public decimal SubTotal => Cantidad * PrecioDeVenta;
     }
 }

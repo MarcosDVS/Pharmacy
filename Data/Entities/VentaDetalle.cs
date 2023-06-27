@@ -8,7 +8,7 @@ namespace FarmaciaDyM.Data.Entities
 {
     public class VentaDetalle
     {
-        [Key]
+        [Key] 
         public int Id { get; set; }
         public int VentaId { get; set; }
         public int ProductoId { get; set; }
@@ -23,6 +23,9 @@ namespace FarmaciaDyM.Data.Entities
         [ForeignKey(nameof(VentaId))]
         public virtual Venta Venta { get; set; }
 
+        [NotMapped]
+        public decimal SubTotal => Cantidad * PrecioDeVenta;
+
         public static VentaDetalle crear(VentasDetalleRequest ventasDetalle)
          => new VentaDetalle()
          {
@@ -30,8 +33,7 @@ namespace FarmaciaDyM.Data.Entities
              ProductoId = ventasDetalle.ProductoId,
              Cantidad = ventasDetalle.Cantidad,
              PrecioDeVenta = ventasDetalle.PrecioDeVenta,
-             Descuento = ventasDetalle.Descuento,
-             Venta = ventasDetalle.Venta,
+             Descuento = ventasDetalle.Descuento
 
          };
 
@@ -63,11 +65,6 @@ namespace FarmaciaDyM.Data.Entities
                 Descuento = ventasDetalle.Descuento;
                 cambio = true;
             }
-            if (Venta != ventasDetalle.Venta)
-            {
-                Venta = ventasDetalle.Venta;
-                cambio = true;
-            }
             return cambio;
 
         }
@@ -77,18 +74,10 @@ namespace FarmaciaDyM.Data.Entities
          => new VentaDetalleResponse()
          {
            Id = Id,
-          Venta=Venta,
           ProductoId=ProductoId,
-          Producto=Producto,
           PrecioDeVenta=PrecioDeVenta,
           Cantidad=Cantidad,
-          Descuento=Descuento,
-          VentaId=VentaId,
-             
-
+          Descuento=Descuento
          };
-
-
-
     }
 }

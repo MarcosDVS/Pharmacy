@@ -1,8 +1,7 @@
 ﻿using FarmaciaDyM.Data.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FarmaciaDyM.Data.Response
-{
+namespace FarmaciaDyM.Data.Response;
     public class VentaResponse
 
     {
@@ -15,5 +14,10 @@ namespace FarmaciaDyM.Data.Response
         public DateTime Fecha { get; set; }
         public virtual ICollection<VentaDetalle> Detalles { get; set; }
 
-    }
-}
+        [NotMapped]
+        public decimal SubTotal =>
+            Detalles != null ? //IF
+            Detalles.Sum(d => d.SubTotal) //Verdadero
+            :
+            0;//Falso
+        }

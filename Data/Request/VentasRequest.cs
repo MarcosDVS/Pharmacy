@@ -13,6 +13,12 @@ namespace FarmaciaDyM.Data.Request
         public virtual Cliente Cliente { get; set; }
         public decimal Total { get; set; }
         public DateTime Fecha { get; set; }
-        public virtual ICollection<VentaDetalle> Detalles { get; set; }
+        public virtual ICollection<VentasDetalleRequest> Detalles { get; set; } 
+        = new List<VentasDetalleRequest>();
+        public decimal SubTotal => 
+        Detalles != null ? 
+        Detalles.Sum(d=>d.SubTotal)
+        :
+        0;
     }
 }

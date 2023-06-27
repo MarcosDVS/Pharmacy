@@ -1,0 +1,56 @@
+@page "/venta"
+
+<PageTitle>Módulo de facturación</PageTitle>
+<div class="row">
+    <div class="col">
+        <h3 class="d-print-none">Módulo de facturación</h3>
+        <h3 class="d-none d-print-block">Reporte de facturaciones</h3>
+    </div>
+    <div class="col">
+        <button 
+            class="btn btn-outline-success" 
+            @onclick='()=>{navigator.NavigateTo("/venta/crear");}'>
+            <span class="oi oi-plus"></span>
+        </button>
+    </div>
+</div>
+@if (Alquileres != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Monto</th>
+                <th scope="col">Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var f in Alquileres)
+            {
+                <tr>
+                    <th scope="row">@f.Id</th>
+                    <td>@f.Cliente.Nombre</td>
+                    <td>@f.SubTotal.ToString("N2")</td>
+                    <td>@f.Fecha</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@code {
+    async Task Consultar()
+    {
+        var resultado = await ventaServices.Consultar();
+        if (resultado.Success)
+        {
+            Alquileres = resultado.Data??new List<VentaResponse>();
+        }
+        StateHasChanged();
+    }
+    public List<VentaResponse> Alquileres { get; set; } = new List<VentaResponse>();
+    protected override async Task OnInitializedAsync()
+    {
+        await Consultar();
+    }
+}
