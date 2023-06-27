@@ -18,6 +18,10 @@ namespace FarmaciaDyM.Data.Response
         [ForeignKey(nameof(ProveedorId))]
         public virtual Proveedor Proveedor { get; set; }  = null!;
 
+        public string NombreProveedortexto => Proveedor != null ? Proveedor.Nombre : "N/A";
+
+        public string CodigoDescripcion => $"({Codigo}) {Nombre}";
+
         public ProductosRequest ToRequest()
         {  
             return new ProductosRequest 

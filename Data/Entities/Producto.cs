@@ -1,4 +1,5 @@
-﻿using FarmaciaDyM.Data.Request;
+﻿using System;
+using FarmaciaDyM.Data.Request;
 using FarmaciaDyM.Data.Response;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,9 +13,10 @@ namespace FarmaciaDyM.Data.Entities
         public string Codigo { get; set; } = null!;
         public string Nombre { get; set; } = null!;
         public decimal Costo { get; set; }
+        [Column(TypeName ="decimal(18,2)")]
         public decimal Precio { get; set; }
         public int Existencia { get; set; }
-        public DateTime FechaDeCaducidad { get; set; }
+        public DateTime FechaDeCaducidad { get; set; } = DateTime.Now.AddMonths(3);
         public int ProveedorId { get; set; }
 
         [ForeignKey(nameof(ProveedorId))]

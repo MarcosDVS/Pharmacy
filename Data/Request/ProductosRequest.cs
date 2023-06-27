@@ -11,7 +11,7 @@ namespace FarmaciaDyM.Data.Request
         public decimal Costo { get; set; }
         public decimal Precio { get; set; }
         public int Existencia { get; set; }
-        public DateTime FechaDeCaducidad { get; set; }
+        public DateTime FechaDeCaducidad { get; set; } = DateTime.Now;
         public int ProveedorId { get; set; }
 
         [ForeignKey(nameof(ProveedorId))]

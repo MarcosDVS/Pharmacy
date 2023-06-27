@@ -11,6 +11,13 @@ namespace FarmaciaDyM.Data.Entities
         public string Nombre { get; set; } = null!;
         public string? Telefono { get; set; }
 
+        public ProveedorResponse? ToResponse()=>new() 
+        { 
+            Id = Id, 
+            Nombre = Nombre, 
+            Telefono = Telefono
+        };
+
         public static Proveedor crear(ProveedorRequest proveedor)
         => new Proveedor()
         {
@@ -35,16 +42,6 @@ namespace FarmaciaDyM.Data.Entities
 
             return cambio;
         }
-
-
-        public ProveedorResponse ToResponse()
-         => new ProveedorResponse()
-         {
-             Id = Id,
-             Nombre = Nombre,
-             Telefono = Telefono,
-             
-         };
 
     }
 

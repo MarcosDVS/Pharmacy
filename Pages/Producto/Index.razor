@@ -37,6 +37,22 @@
                 <label class="input-group-text">Existencia</label>
                 <InputNumber class="form-control" @bind-Value="@request.Existencia"></InputNumber>
             </div>
+            <div class="mb-3 input-group">
+                <label class="input-group-text">Fecha/Caducidad</label>
+                <InputDate class="form-control" @bind-Value="@request.FechaDeCaducidad"></InputDate>
+            </div>
+            <div class="mb-3 input-group">
+                <label class="input-group-text">Proveedor</label>
+                <select class="form-control" @bind="request.ProveedorId">
+                    <option disabled>Selecciona un proveedor</option>
+                    @foreach (var proveedor in Proveedores)
+                    {
+                        <option value="@proveedor.Id">
+                            @proveedor.Nombre
+                            </option>
+                    }
+                </select>
+            </div>
             
             <div class="btn-group">
                 <button type="submit" class="btn btn-outline-success">Guardar</button>
@@ -96,6 +112,7 @@
     public List<ProductoResponse> Items { get; set; }
         = new List<ProductoResponse>();
 
+    public List<ProveedorResponse> Proveedores { get; set; } = new List<ProveedorResponse>();
     public ProductosRequest request { get; set; } = new ProductosRequest();
 
     void Cancelar()
