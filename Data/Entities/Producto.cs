@@ -78,7 +78,6 @@ namespace FarmaciaDyM.Data.Entities
 
         }
 
-
         public ProductoResponse ToResponse()
           => new  ProductoResponse()
           {
@@ -89,10 +88,7 @@ namespace FarmaciaDyM.Data.Entities
               Precio = Precio,
               Existencia = Existencia, 
               FechaDeCaducidad = FechaDeCaducidad, 
-              ProveedorId = ProveedorId,
-           
-            
-             
+              ProveedorId = ProveedorId
           };
 
     }
